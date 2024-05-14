@@ -1,17 +1,22 @@
-//
-// Created by 33782 on 26/04/2024.
-//
+#ifndef COLUMN_H
+#define COLUMN_H
 
-#ifndef PROJET_TP_CV2_COLUMN_H
-#define PROJET_TP_CV2_COLUMN_H
+typedef struct {
+    char *titre;
+    int taille_physique;
+    int taille_logique;
+    char *type_data;
+    int *data;
+} COLUMN;
 
-typedef struct{
-    char* titre_colonne;
-    int taille_physique = 0;
-    int taille_logique = 0;
-    int* valeur_tableau = NULL;
-}COLONNE;
+COLUMN *create_column(const char *title);
+int insert_value(COLUMN *column, int value);
+void delete_column(COLUMN *col);
+void print_col(const COLUMN *column);
+int occurrences(const COLUMN *column, int value);
+int get_value(const COLUMN *column, int position);
+int bigger_value(const COLUMN *column, int value);
+int lesser_value(const COLUMN *column, int value);
+int egaliter_value(const COLUMN *column, int value);
 
-COLONNE * create_column(char* title);
-
-#endif //PROJET_TP_CV2_COLUMN_H
+#endif
