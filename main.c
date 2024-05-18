@@ -40,6 +40,7 @@ int main() {
     print_cdataframe(L);
     ajouter_queue_liste(&L,mycol2);
     print_ligne_cdataframe(L,3);
+    print_colonne_cdataframe(L,1);
     delete_column(mycol);
 
 

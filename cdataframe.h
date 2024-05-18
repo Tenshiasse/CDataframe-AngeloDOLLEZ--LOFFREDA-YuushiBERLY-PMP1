@@ -19,4 +19,5 @@ int liste_vide(LISTE);
 void ajouter_queue_liste(LISTE*, COLUMN*);
 void print_cdataframe(LISTE);
 void print_ligne_cdataframe(LISTE,int);
+void print_colonne_cdataframe(LISTE L,int);
 #endif

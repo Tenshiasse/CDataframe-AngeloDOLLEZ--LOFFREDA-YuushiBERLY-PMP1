@@ -59,3 +59,13 @@ void print_ligne_cdataframe(LISTE L,int val) {
     }
 }
 
+void print_colonne_cdataframe(LISTE L,int val){
+    LISTE temp = L;
+    print_col(temp->colonne);
+    temp=temp->succ;
+    for(int i=0;i<val-1;i++){
+        print_col(temp->colonne);
+        temp=temp->succ;
+    }
+}
+
