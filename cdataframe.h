@@ -16,5 +16,7 @@ typedef MAILLON* LISTE;
 
 MAILLON* creer_maillon(COLUMN*);
 int liste_vide(LISTE);
+void ajouter_queue_liste(LISTE*, COLUMN*);
 void print_cdataframe(LISTE);
+void print_ligne_cdataframe(LISTE,int);
 #endif

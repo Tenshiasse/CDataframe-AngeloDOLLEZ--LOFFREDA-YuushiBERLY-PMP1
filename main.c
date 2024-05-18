@@ -15,6 +15,20 @@ int main() {
     insert_value(mycol, val1);
     insert_value(mycol, val2);
     insert_value(mycol, val3);
+
+    COLUMN *mycol2 = create_column("My column");
+    int val4 = 5;
+    if (insert_value(mycol2, val4))
+        printf("Value added successfully to my column\n");
+    else
+        printf("Error adding value to my column\n");
+    int val5 = 7;
+    int val6 = 54;
+    int val7 = 2;
+    insert_value(mycol2, val5);
+    insert_value(mycol2, val6);
+    insert_value(mycol2, val7);
+
     print_col(mycol);
     printf("\noccurences de 5: %d",occurrences(mycol,5));
     printf("\nposition 1 = %d",get_value(mycol,1));
@@ -24,7 +38,10 @@ int main() {
     LISTE L = NULL;
     L=creer_maillon(mycol);
     print_cdataframe(L);
+    ajouter_queue_liste(&L,mycol2);
+    print_ligne_cdataframe(L,3);
     delete_column(mycol);
+
 
 
     return 0;
