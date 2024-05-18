@@ -20,13 +20,11 @@ int insert_value(COLUMN *column, int value){
         printf("Column is NULL\n");
         return 0;
     }
-
     if (column->data == NULL){
         column->data = (int*)malloc(sizeof(int));
     }else{
         column->data = (int*)realloc(column->data, (column->taille_logique + 1) * sizeof(int));
     }
-
     if (column->data == NULL) {
         printf("Allocation memory error\n");
         exit(1);
@@ -57,13 +55,13 @@ void print_col(const COLUMN *column){
 }
 
 int occurrences(const COLUMN *column, int value){
-    int count = 0;
+    int occva = 0;
     for (int i = 0; i < column->taille_logique; i++){
         if (column->data[i] == value) {
-            count++;
+            occva++;
         }
     }
-    return count;
+    return occva;
 }
 
 int get_value(const COLUMN *column, int position){
@@ -75,29 +73,29 @@ int get_value(const COLUMN *column, int position){
     }}
 
 int bigger_value(const COLUMN *column, int value){
-    int count = 0;
+    int bigva = 0;
     for (int i = 0; i < column->taille_logique; i++){
         if (column->data[i] > value) {
-            count++;
+            bigva++;
         }}
-    return count;
+    return bigva;
 }
 int lesser_value(const COLUMN *column, int value){
-    int count = 0;
+    int lesva = 0;
     for (int i = 0; i < column->taille_logique; i++){
         if (column->data[i] < value){
-            count++;
+            lesva++;
         }
     }
-    return count;
+    return lesva;
 }
 
 int egaliter_value(const COLUMN *column, int value){
-    int count = 0;
+    int egva = 0;
     for (int i = 0; i < column->taille_logique; i++){
         if (column->data[i] == value) {
-            count++;
+            egva++;
         }
     }
-    return count;
+    return egva;
 }

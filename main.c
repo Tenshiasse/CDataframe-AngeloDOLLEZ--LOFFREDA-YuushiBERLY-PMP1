@@ -3,45 +3,151 @@
 #include "column.h"
 #include "cdataframe.h"
 int main() {
-    COLUMN *mycol = create_column("My column");
-    int val = 8;
-    if (insert_value(mycol, val))
-        printf("Value added successfully to my column\n");
-    else
-        printf("Error adding value to my column\n");
-    int val1 = 3;
-    int val2 = 8;
-    int val3 = 32;
-    insert_value(mycol, val1);
-    insert_value(mycol, val2);
-    insert_value(mycol, val3);
+    int suge=0;
+    do {
+        printf("Voulez-vous sois:\n1 : Utilise une colonne deja initialise en dur?\n2 : Inserer vous meme les valeurs?\n");
+        scanf("%d",&suge);
+    }while(suge < 1 ||  suge > 2);
 
-    COLUMN *mycol2 = create_column("My column");
-    int val4 = 5;
-    if (insert_value(mycol2, val4))
-        printf("Value added successfully to my column\n");
-    else
-        printf("Error adding value to my column\n");
-    int val5 = 7;
-    int val6 = 54;
-    int val7 = 2;
-    insert_value(mycol2, val5);
-    insert_value(mycol2, val6);
-    insert_value(mycol2, val7);
 
-    print_col(mycol);
-    printf("\noccurences de 5: %d",occurrences(mycol,5));
-    printf("\nposition 1 = %d",get_value(mycol,1));
-    printf("\nIl y a %d valeurs superieurs a 5",bigger_value(mycol,5));
-    printf("\nIl y a %d valeurs inferieur a 10 ", lesser_value(mycol,10));
-    printf("\nIl y %d valeurs egales a 6",egaliter_value(mycol,6));
-    LISTE L = NULL;
-    L=creer_maillon(mycol);
-    print_cdataframe(L);
-    ajouter_queue_liste(&L,mycol2);
-    print_ligne_cdataframe(L,3);
-    print_colonne_cdataframe(L,1);
-    delete_column(mycol);
+    if(suge==1) {
+        COLUMN *colone = create_column("column one");
+        int val1 = 34;
+        if(insert_value(colone, val1))
+            printf("Value added successfully to column one\n");
+        else
+            printf("Error adding value to column one\n");
+        int val2 = 59;
+        int val3 = 515;
+        int val4 = 97;
+        int val5 = 5;
+        insert_value(colone, val2);
+        insert_value(colone, val3);
+        insert_value(colone, val4);
+        insert_value(colone, val5);
+        print_col(colone);
+
+        COLUMN *coltwo = create_column("column two");
+        int val9 = 5;
+        if (insert_value(coltwo, val9))
+            printf("Value added successfully to column two\n");
+        else
+            printf("Error adding value to column two\n");
+        int val8 = 7;
+        int val6 = 54;
+        int val7 = 2;
+        insert_value(coltwo, val8);
+        insert_value(coltwo, val6);
+        insert_value(coltwo, val7);
+
+        print_col(colone);
+        LISTE L = NULL;
+        L = creer_maillon(colone);
+        print_cdataframe(L);
+        ajouter_queue_liste(&L, coltwo);
+        print_ligne_cdataframe(L, 3);
+        print_colonne_cdataframe(L, 1);
+        delete_column(colone);
+
+
+        int valsuge;
+        valsuge = 0;
+        int sugemenu = 0;
+        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vou voulez rajouter une valeur dans la colonne \n8 : si vous avez fini\n");
+        while (sugemenu != 8) {
+            valsuge = 0;
+            scanf("%d", &sugemenu);
+            if (sugemenu == 1) {
+                printf("inserer un nombre dont on va chercher l'occurence");
+                scanf("%d", &valsuge);
+                printf("\nnombre d'occurences de %d: %d\n", valsuge, occurrences(colone, valsuge));
+            }
+            if (sugemenu == 2) {
+                printf("inserer un nombre dont on veut afficher la position");
+                scanf("%d", &valsuge);
+                printf("\nposition %d = %d\n", valsuge, get_value(colone, valsuge));
+            }
+            if (sugemenu == 3) {
+                printf("inserer un nombre dont on veut afficher le nombre de valeur superieur");
+                scanf("%d", &valsuge);
+                printf("\nil y a %d valeurs plus grandes que %d \n", bigger_value(colone, valsuge), valsuge);
+            }
+            if (sugemenu == 4) {
+                printf("inserer un nombre dont on veut afficher le nombre de valeur inferieur");
+                scanf("%d", &valsuge);
+                printf("\nil y a %d valeurs plus petites que %d \n", lesser_value(colone, valsuge), valsuge);
+            }
+            if (sugemenu == 5) {
+                printf("inserer un nombre dont on veut afficher le nombre de valeur egale");
+                scanf("%d", &valsuge);
+                printf("\nil y a %d valeur egale a %d \n", egaliter_value(colone, valsuge), valsuge);
+            }
+            if (sugemenu == 6) {
+                printf("inserer la valeur que vous voulez rajouter dans la colonne");
+                scanf("%d", &valsuge);
+                insert_value(colone, valsuge);
+            }
+            if (sugemenu == 8) {
+                printf("Au revoir et bonne journee! :) ");
+            }
+        }
+    }
+    if(suge==2){
+        char naco;
+        printf("\nDonner un nom a votre colonne:\n");
+        scanf("%s",&naco);
+        COLUMN *colthree = create_column(&naco);
+        int val = 0;
+        printf("\nInserer la premiere valeur de la colonne:\n");
+        scanf("%d",&val);
+        if(insert_value(colthree, val))
+            printf("Value added successfully to %s \n",naco);
+        else
+            printf("Error adding value to %s \n",naco);
+
+        int valtest;
+        int sugemenu = 0;
+        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vou voulez rajouter une valeur dans la colonne \n8 : si vous avez fini\n");
+        while(sugemenu != 8){
+            valtest=0;
+            scanf("%d" ,&sugemenu);
+            if(sugemenu == 1){
+                printf("inserer un nombre dont on va chercher l'occurence");
+                scanf("%d" ,&valtest);
+                printf("\nnombre d'occurences de %d: %d\n", valtest, occurrences(colthree, valtest));
+            }
+            if(sugemenu == 2){
+                printf("inserer un nombre dont on veut afficher la position");
+                scanf("%d" ,&valtest);
+                printf("\nposition %d = %d\n", valtest, get_value(colthree, valtest));
+            }
+            if(sugemenu == 3){
+                printf("inserer un nombre dont on veut afficher le nombre de valeur superieur");
+                scanf("%d" ,&valtest);
+                printf("\nil y a %d valeurs plus grandes que %d \n", bigger_value(colthree, valtest), valtest);
+            }
+            if(sugemenu == 4){
+                printf("inserer un nombre dont on veut afficher le nombre de valeur inferieur");
+                scanf("%d" ,&valtest);
+                printf("\nil y a %d valeurs plus petites que %d \n", lesser_value(colthree, valtest), valtest);
+            }
+            if(sugemenu == 5){
+                printf("inserer un nombre dont on veut afficher le nombre de valeur egale");
+                scanf("%d" ,&valtest);
+                printf("\nil y a %d valeur egale a %d \n", egaliter_value(colthree, valtest), valtest);
+            }
+            if(sugemenu == 6){
+                printf("inserer la valeur que vous voulez rajouter dans la colonne");
+                scanf("%d" ,&valtest);
+                insert_value(colthree, valtest);
+            }
+            if(sugemenu == 8){
+                printf("Au revoir et bonne journee! :) ");
+            }
+        }
+        delete_column(colthree);
+    }
+
 
 
 
