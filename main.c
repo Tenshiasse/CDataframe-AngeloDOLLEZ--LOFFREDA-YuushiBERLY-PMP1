@@ -47,7 +47,24 @@ int main() {
         ajouter_queue_liste(&L, coltwo);
         print_ligne_cdataframe(L, 3);
         print_colonne_cdataframe(L, 1);
-        delete_column(colone);
+
+        int haha=ligne_value(colone);
+        printf("colonne one = ligne de %d\n",haha);
+
+        print_value_ligne(L);
+        print_titre_colonne(colone);
+
+        search_value(L,54);
+        afficher_titre(L);
+        int nbcol=print_value_colonne(L);
+        printf("il y a %d colonne\n",nbcol);
+
+        int valeg= egaliter_cellule_val(L,54);
+        printf("il y a %d valeurs egale a 54\n",valeg);
+        int valbig= bigger_cellule_val(L,54);
+        printf("il y a %d valeurs plus grandes que 54\n",valbig);
+        int valess= lesser_cellule_val(L,54);
+        printf("il y a %d valeurs plus petites que 54\n",valess);
 
 
         int valsuge;
@@ -91,6 +108,7 @@ int main() {
                 printf("Au revoir et bonne journee! :) ");
             }
         }
+        delete_column(colone);
     }
     if(suge==2){
         char naco;
@@ -107,7 +125,7 @@ int main() {
 
         int valtest;
         int sugemenu = 0;
-        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vou voulez rajouter une valeur dans la colonne \n8 : si vous avez fini\n");
+        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vous voulez rajouter une valeur dans la colonne \n8 : si vous avez fini\n");
         while(sugemenu != 8){
             valtest=0;
             scanf("%d" ,&sugemenu);

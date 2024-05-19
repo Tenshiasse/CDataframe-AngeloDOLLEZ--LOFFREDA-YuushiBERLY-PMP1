@@ -20,4 +20,12 @@ void ajouter_queue_liste(LISTE*, COLUMN*);
 void print_cdataframe(LISTE);
 void print_ligne_cdataframe(LISTE,int);
 void print_colonne_cdataframe(LISTE L,int);
+
+void search_value(LISTE L,int value);
+void afficher_titre(LISTE L);
+void print_value_ligne(LISTE L);
+int print_value_colonne(LISTE);
+int egaliter_cellule_val(LISTE L,int value);
+int bigger_cellule_val(LISTE L, int value);
+int lesser_cellule_val(LISTE L,int value);
 #endif

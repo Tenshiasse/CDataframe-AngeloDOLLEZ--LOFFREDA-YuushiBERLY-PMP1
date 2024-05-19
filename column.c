@@ -54,10 +54,10 @@ void print_col(const COLUMN *column){
     printf("\n");
 }
 
-int occurrences(const COLUMN *column, int value){
+int occurrences(const COLUMN *column, int nb){
     int occva = 0;
     for (int i = 0; i < column->taille_logique; i++){
-        if (column->data[i] == value) {
+        if (column->data[i] == nb) {
             occva++;
         }
     }
@@ -68,7 +68,7 @@ int get_value(const COLUMN *column, int position){
     if (position >= 0 && position < column->taille_logique){
         return column->data[position];
     }else{
-        fprintf(stderr, "Position inccorect\n");
+        printf("Position inccorect\n");
         exit(1);
     }}
 
@@ -98,4 +98,17 @@ int egaliter_value(const COLUMN *column, int value){
         }
     }
     return egva;
+}
+
+int ligne_value(const COLUMN *column){
+    int nblig= 0;
+    for (int i = 0; i < column->taille_logique; i++){
+        nblig++;
+
+    }
+    return nblig;
+}
+
+void print_titre_colonne(COLUMN *colonne){
+    printf("Titre de la colonne : %s\n", colonne->titre);
 }

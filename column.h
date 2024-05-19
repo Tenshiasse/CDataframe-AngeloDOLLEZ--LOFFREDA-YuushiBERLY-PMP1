@@ -13,10 +13,12 @@ COLUMN *create_column(const char *title);
 int insert_value(COLUMN *column, int value);
 void delete_column(COLUMN *col);
 void print_col(const COLUMN *column);
-int occurrences(const COLUMN *column, int value);
+int occurrences(const COLUMN *column, int nb);
 int get_value(const COLUMN *column, int position);
 int bigger_value(const COLUMN *column, int value);
 int lesser_value(const COLUMN *column, int value);
 int egaliter_value(const COLUMN *column, int value);
+int ligne_value(const COLUMN *column);
+void print_titre_colonne(COLUMN *colonne);
 
 #endif
