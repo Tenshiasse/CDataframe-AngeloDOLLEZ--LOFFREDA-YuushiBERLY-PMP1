@@ -102,7 +102,7 @@ void search_value(LISTE L,int value){
     while(temp != NULL){
         for (int i = 0; i < temp->colonne->taille_logique; i++){
             if (temp->colonne->data[i] == value) {
-                printf("La valeur existe.\n");
+                printf("La valeur %d existe.\n",value);
                 faux++;
                 return;
             }
