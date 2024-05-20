@@ -29,6 +29,7 @@ int print_value_colonne(LISTE);
 int egaliter_cellule_val(LISTE L,int value);
 int bigger_cellule_val(LISTE L, int value);
 int lesser_cellule_val(LISTE L,int value);
-void changer_nom_colonne(LISTE L,const char *nom,char *nouv_nom);
-void ajouter_ligne(LISTE L);
+void changer_nom_colonne(LISTE ,const char*,char*);
+void ajouter_ligne(LISTE);
+void supprimer_ligne(LISTE,int);
 #endif

@@ -48,7 +48,7 @@ void supprimer_colonne(LISTE L,const char* nom){
         }
         temp=temp->succ;
     }
-    printf("Erreur veuillez reessayer.")
+    printf("Erreur veuillez reessayer.");
 }
 // permet  d'afficher tout le CDataframe
 void print_cdataframe(LISTE L){
@@ -200,6 +200,18 @@ void ajouter_ligne(LISTE L){
             printf("Ajouter une valeur dans la colonne %d", i);
             scanf("%d",&valeur);
             insert_value(temp->colonne,valeur);
+        }
+        temp=temp->succ;
+    }
+}
+
+void supprimer_ligne(LISTE L,int ligne){
+    LISTE temp = L;
+    while(temp!=NULL){
+        for(int i=0;i<ligne_value(temp->colonne);i++){
+            if(i >= ligne-1) {
+                ((temp->colonne)->data[i])=((temp->colonne)->data[i+1]);
+            }
         }
         temp=temp->succ;
     }
