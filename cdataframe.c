@@ -17,7 +17,7 @@ int liste_vide(LISTE L){
     return 0;
 }
 // permet le remplissage du CDataframe à partir de saisies utilisateurs
-void ajouter_queue_liste(LISTE* L, COLUMN* colonne){
+void ajouter_colonne_cdataframe(LISTE* L, COLUMN* colonne){
     MAILLON* new = creer_maillon(colonne);
     if (liste_vide(*L)==1){
         *L=new;
@@ -29,6 +29,26 @@ void ajouter_queue_liste(LISTE* L, COLUMN* colonne){
         }
         temp->succ=new;
     }
+}
+
+void supprimer_colonne(LISTE L,const char* nom){
+    LISTE temp=L;
+    while(temp->succ!=NULL){
+        if (temp->succ==NULL){
+            delete_column(temp->succ->colonne);
+            temp=NULL;
+            printf("La colonne a bien ete supprime.");
+            return;
+        }
+        if(strcmp(nom, temp->succ->colonne->titre) == 0){
+            delete_column((temp->succ)->colonne);
+            temp=(temp->succ)->succ;
+            printf("La colonne a bien ete supprime.");
+            return;
+        }
+        temp=temp->succ;
+    }
+    printf("Erreur veuillez reessayer.")
 }
 // permet  d'afficher tout le CDataframe
 void print_cdataframe(LISTE L){
@@ -158,4 +178,29 @@ int lesser_cellule_val(LISTE L,int value){
         temp = temp->succ;
     }
     return lesce;
+}
+
+void changer_nom_colonne(LISTE L,const char *nom,char *nouv_nom){
+    LISTE temp = L;
+    while(temp!=NULL){
+        if(strcmp(nom, temp->colonne->titre) == 0){
+            (temp->colonne)->titre = nouv_nom;
+            printf("Le nom a bien ete change.\n");
+            return;
+        }
+        temp=temp->succ;
+    }
+    printf("Erreur veuillez reessayer.\n");
+}
+void ajouter_ligne(LISTE L){
+    LISTE temp=L;
+    int valeur;
+    while(temp!=NULL) {
+        for(int i=0;i<1;i++) {
+            printf("Ajouter une valeur dans la colonne %d", i);
+            scanf("%d",&valeur);
+            insert_value(temp->colonne,valeur);
+        }
+        temp=temp->succ;
+    }
 }

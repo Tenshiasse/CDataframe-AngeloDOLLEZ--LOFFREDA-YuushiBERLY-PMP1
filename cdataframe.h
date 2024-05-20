@@ -16,7 +16,8 @@ typedef MAILLON* LISTE;
 
 MAILLON* creer_maillon(COLUMN*);
 int liste_vide(LISTE);
-void ajouter_queue_liste(LISTE*, COLUMN*);
+void ajouter_colonne_cdataframe(LISTE*, COLUMN*);
+void supprimer_colonne(LISTE L,const char* nom);
 void print_cdataframe(LISTE);
 void print_ligne_cdataframe(LISTE,int);
 void print_colonne_cdataframe(LISTE L,int);
@@ -28,4 +29,6 @@ int print_value_colonne(LISTE);
 int egaliter_cellule_val(LISTE L,int value);
 int bigger_cellule_val(LISTE L, int value);
 int lesser_cellule_val(LISTE L,int value);
+void changer_nom_colonne(LISTE L,const char *nom,char *nouv_nom);
+void ajouter_ligne(LISTE L);
 #endif

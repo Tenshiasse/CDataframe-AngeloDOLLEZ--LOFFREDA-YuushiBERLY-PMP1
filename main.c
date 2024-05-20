@@ -44,7 +44,7 @@ int main() {
         LISTE L = NULL;
         L = creer_maillon(colone);
         print_cdataframe(L);
-        ajouter_queue_liste(&L, coltwo);
+        ajouter_colonne_cdataframe(&L, coltwo);
         print_ligne_cdataframe(L, 3);
         print_colonne_cdataframe(L, 1);
 
@@ -166,9 +166,6 @@ int main() {
         }
         delete_column(colthree);
     }
-
-
-
 
     return 0;
 }
