@@ -218,12 +218,20 @@ void ajouter_ligne(LISTE L){
 //permet de supprimer une ligne
 void supprimer_ligne(LISTE L,int ligne){
     LISTE temp = L;
-    while(temp!=NULL){
-        for(int i=0;i<ligne_value(temp->colonne);i++){
-            if(i >= ligne-1) {
-                ((temp->colonne)->data[i])=((temp->colonne)->data[i+1]);
+    while (temp != NULL) {
+        int ligne_count = ligne_value(temp->colonne);
+        if (ligne >= 1 && ligne <= ligne_count) {
+            for (int i = ligne - 1; i < ligne_count - 1; i++) {
+                (temp->colonne)->data[i] = (temp->colonne)->data[i + 1];
+            }
+            int nouvelle_taille = ligne_count - 1;
+            int* nouvelle_data = (int*) realloc((temp->colonne)->data, nouvelle_taille * sizeof(int));
+            if (nouvelle_data != NULL) {
+                (temp->colonne)->data = nouvelle_data;
+            } else {
+                fprintf(stderr, "Erreur de redimensionnement de la mémoire\n");
             }
         }
-        temp=temp->succ;
+        temp = temp->succ;
     }
 }
