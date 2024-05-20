@@ -66,7 +66,12 @@ int main() {
         int valess= lesser_cellule_val(L,54);
         printf("Il y a %d valeurs plus petites que 54\n",valess);
 
+        changer_nom_colonne(L,"column one","column ONE");
+        ajouter_ligne(L);
+        supprimer_ligne(L,2);
+        supprimer_colonne(&L,"column two");
 
+        print_cdataframe(L);
         int valsuge;
         valsuge = 0;
         int sugemenu = 0;

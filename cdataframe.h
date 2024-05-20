@@ -17,7 +17,7 @@ typedef MAILLON* LISTE;
 MAILLON* creer_maillon(COLUMN*);
 int liste_vide(LISTE);
 void ajouter_colonne_cdataframe(LISTE*, COLUMN*);
-void supprimer_colonne(LISTE L,const char* nom);
+void supprimer_colonne(LISTE *L,const char* nom);
 void print_cdataframe(LISTE);
 void print_ligne_cdataframe(LISTE,int);
 void print_colonne_cdataframe(LISTE L,int);
