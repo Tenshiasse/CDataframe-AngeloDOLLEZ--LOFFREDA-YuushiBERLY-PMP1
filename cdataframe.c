@@ -2,21 +2,21 @@
 // Created by 33782 on 26/04/2024.
 //
 #include "cdataframe.h"
-
+// permet de crée un maillon
 MAILLON* creer_maillon(COLUMN* colonne){
     MAILLON* new = (MAILLON*)malloc(sizeof (MAILLON));
     new->colonne=colonne;
     new->succ=NULL;
     return new;
 }
-
+// permet de vérifier si une liste est vide ou non
 int liste_vide(LISTE L){
     if (L==NULL){
         return 1;
     }
     return 0;
 }
-
+// permet le remplissage du CDataframe à partir de saisies utilisateurs
 void ajouter_queue_liste(LISTE* L, COLUMN* colonne){
     MAILLON* new = creer_maillon(colonne);
     if (liste_vide(*L)==1){
@@ -30,7 +30,7 @@ void ajouter_queue_liste(LISTE* L, COLUMN* colonne){
         temp->succ=new;
     }
 }
-
+// permet  d'afficher tout le CDataframe
 void print_cdataframe(LISTE L){
     LISTE temp = L;
     print_col(temp->colonne);
@@ -40,7 +40,7 @@ void print_cdataframe(LISTE L){
         temp=temp->succ;
     }
 }
-
+// permet d'afficher une partie des lignes du CDataframe selon une limite fournie par l’utilisateur
 void print_ligne_cdataframe(LISTE L,int val) {
     LISTE temp = L;
     for (int i=0;i<val;i++){
@@ -58,7 +58,7 @@ void print_ligne_cdataframe(LISTE L,int val) {
         printf("\n");
     }
 }
-
+// permet d'afficher une partie des colonnes du CDataframe selon une limite fournie par l’utilisateur
 void print_colonne_cdataframe(LISTE L,int val){
     LISTE temp = L;
     print_col(temp->colonne);
@@ -68,7 +68,7 @@ void print_colonne_cdataframe(LISTE L,int val){
         temp=temp->succ;
     }
 }
-
+// permet de vérifier l’existence d’une valeur dans le CDataframe
 void search_value(LISTE L,int value){
     LISTE temp = L;
     int faux = 0;
@@ -85,7 +85,7 @@ void search_value(LISTE L,int value){
         printf("La valeur n'existe pas.\n");
     }
 }
-
+// permet d'afficher le titre des colonnes
 void afficher_titre(LISTE L){
     LISTE temp = L;
     int j=1;
@@ -95,7 +95,7 @@ void afficher_titre(LISTE L){
         temp=temp->succ;
     }
 }
-
+// permet d'afficher le nombre de lignes
 void print_value_ligne(LISTE L){
     LISTE temp = L;
     int nblig=0;
@@ -108,7 +108,7 @@ void print_value_ligne(LISTE L){
     }
 }
 
-
+// permet d'afficher le nombre de colonnes
 int print_value_colonne(LISTE L){
     LISTE temp = L;
     int nbcol = 1;
@@ -119,7 +119,7 @@ int print_value_colonne(LISTE L){
     }
     return nbcol;
 }
-
+// permet d'avoir le nombre de cellules contenant une valeur egale a x
 int egaliter_cellule_val(LISTE L,int value){
     LISTE temp = L;
     int eg=0;
@@ -133,7 +133,7 @@ int egaliter_cellule_val(LISTE L,int value){
 
     return egce;
 }
-
+// permet d'avoir le nombre de cellules contenant une valeur superieur a x
 int bigger_cellule_val(LISTE L, int value){
     LISTE temp = L;
     int big=0;
@@ -146,7 +146,7 @@ int bigger_cellule_val(LISTE L, int value){
     }
     return bigce;
 }
-
+// permet d'avoir le nombre de cellules contenant une valeur inferieur a x
 int lesser_cellule_val(LISTE L,int value){
     LISTE temp = L;
     int less=0;
