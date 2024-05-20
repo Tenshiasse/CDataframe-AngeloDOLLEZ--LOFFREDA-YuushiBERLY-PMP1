@@ -36,8 +36,8 @@ Pour les fonctionnalités de notre CDataframe (qui ce trouvent dans column.c) il
 
 Dans le menu, toute les fonction sont tester au moin une fois pour montrer qu'ils marchent lors du test en dur, cepeandant pour lorsque l'utilisateur rempli un tableau lui même, le menu permet seulement le test des fonction colonne. Donc pour les tests pour les fonctions du cdataframe.c il y a dans le main que en choisissant "1 : Utilise une colonne deja initialise en dur?" que les test pour le CDataframe s'executerons.
 
+Au début de notre projet, nous avons rencontrer un problème avec git, ce qui nous a obligé a crée un nouveaux git, on a donc supprimer l'ancien projet git pour faire celui là, dans le dépot intermédiaire il y a le premier git (qui n'existe plus aujourd'hui).
 
-Au début de notre projet, nous avons rencontrer un problème avec git, ce qui nous a obligé a crée un nouveaux git, d'où le nom "Projet_TP_Cv2".
 
 
 
