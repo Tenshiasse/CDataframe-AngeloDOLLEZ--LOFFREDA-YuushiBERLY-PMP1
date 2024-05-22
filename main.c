@@ -147,7 +147,7 @@ int main() {
 
         int valtest;
         int sugemenu = 0;
-        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vous voulez rajouter une valeur dans la colonne \n8 : si vous avez fini\n");
+        printf("\nChoisissez ce que vous voulez:\n1 : chercher l'occurence \n2 : afficher la position d'une valeur \n3 : afficher le nombre de valeur superieur a une valeur donnee \n4 : afficher le nombre de valeur inferieur a une valeur donnee \n5 : le nombre de valeur egale a un chiffre donnee\n6 : si vous voulez rajouter une valeur dans la colonne\n7 : si vous voulez afficher la colonne\n8 : si vous avez fini\n");
         while(sugemenu != 8){
             valtest=0;
             scanf("%d" ,&sugemenu);
@@ -180,6 +180,9 @@ int main() {
                 printf("Inserer la valeur que vous voulez rajouter dans la colonne");
                 scanf("%d" ,&valtest);
                 insert_value(colthree, valtest);
+            }
+            if (sugemenu == 7){
+                print_col(colthree);
             }
             if(sugemenu == 8){
                 printf("Au revoir et bonne journee! :) ");
