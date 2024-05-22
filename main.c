@@ -25,6 +25,7 @@ int main() {
         insert_value(colone, val3);
         insert_value(colone, val4);
         insert_value(colone, val5);
+        printf("\nInitialisation da la premiere colonne :");
         print_col(colone);
 
         COLUMN *coltwo = create_column("column two");
@@ -44,32 +45,44 @@ int main() {
         LISTE L = NULL;
         L = creer_maillon(colone);
         ajouter_colonne_cdataframe(&L, coltwo);
+        printf("\nAffichage du CDataFrame : ");
+
         print_cdataframe(L);
         printf("\nmaintenant, quelque fonction:\n");
+        printf("\nOn affiche le CDataFrame jusqu'a la 3eme ligne :\n");
         print_ligne_cdataframe(L, 3);
+        printf("\nOn affiche le CDataFrame jusqu'a la premiere colonne :");
         print_colonne_cdataframe(L, 1);
+        printf("\nOn affiche le nombre de ligne dans chaque colonne :\n");
         print_value_ligne(L);
+        printf("\nOn affiche le nom d'une colonne :\n");
         print_titre_colonne(colone);
+        printf("\nOn recherche une valeur dans le CDataFrame :\n");
         search_value(L,54);
+        printf("\nOn affiche le nom de toutes les colonnes :\n");
         afficher_titre(L);
         int nbcol=print_value_colonne(L);
-        printf("Il y a %d colonne\n",nbcol);
+        printf("\nIl y a %d colonne dans le CDataFrame\n",nbcol);
         int valeg= egaliter_cellule_val(L,54);
-        printf("Il y a %d valeurs egale a 54\n",valeg);
+        printf("\nIl y a %d valeurs egale a 54 dans le CDataFrame\n",valeg);
         int valbig= bigger_cellule_val(L,54);
-        printf("Il y a %d valeurs plus grandes que 54\n",valbig);
+        printf("\nIl y a %d valeurs plus grandes que 54 dans le CDataFrame\n",valbig);
         int valess= lesser_cellule_val(L,54);
-        printf("Il y a %d valeurs plus petites que 54\n",valess);
+        printf("\nIl y a %d valeurs plus petites que 54 dans le CDataFrame\n",valess);
+        printf("\nOn change le nom de la premiere colonne :\n");
         changer_nom_colonne(L,"column one","column ONE");
+        printf("\nOn ajoute une ligne au CDataFrame :\n");
         ajouter_ligne(L);
         print_cdataframe(L);
+        printf("\nOn supprime la deuxieme ligne du CDataFrame :\n");
         supprimer_ligne(L,2);
         print_cdataframe(L);
+        printf("\nOn supprime la deuxieme colonne du CDataFrame:\n");
         supprimer_colonne(&L,"column two");
         print_cdataframe(L);
 
         //test pour la parti colonne
-        printf("maintenant les fonction pour les colonnes");
+        printf("\nMaintenant les fonction pour les colonnes\n");
         int valsuge;
         valsuge = 0;
         int sugemenu = 0;
